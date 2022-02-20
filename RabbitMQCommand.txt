@@ -1,0 +1,19 @@
+ rabbitmq-plugins disable rabbitmq_management
+ rabbitmq-plugins enable rabbitmq_management
+ 
+ docker run -p 15672:15672 -p 5672:5672 --name rabbitmq rabbitmq:3-management-alpine
+
+ 
+ 
+ stop sql service:
+ docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=SwN12345678" --name ordersdb -p 1433:1433 mcr.microsoft.com/mssql/server:2017-latest
+ 
+ //docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=2Secure*Password2" --name ordersdb -p 1450:1433 mcr.microsoft.com/mssql/server:2017-latest
+ 
+ //Try
+ 
+ //docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=yourStrong(!)Password" --name ordersdb -p 1433:1433 mcr.microsoft.com/mssql/server:2019-CU15-ubuntu-20.04
+ 
+ 
+ 
+ //Note: If you are not running app in container, then sql services will not stop

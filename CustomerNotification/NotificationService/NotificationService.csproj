@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Faces.SharedLib\Messaging.InterfacesConstants\Messaging.InterfacesConstants.csproj" />
+    <ProjectReference Include="..\EmailService\EmailService.csproj" />
   </ItemGroup>
 
 </Project>

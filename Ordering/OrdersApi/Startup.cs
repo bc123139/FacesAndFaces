@@ -64,7 +64,17 @@ namespace OrdersApi
                         e.Consumer<RegisterOrderCommandConsumer>(provider);
 
                     });
-                   
+
+                    cfg.ReceiveEndpoint(RabbitMqMassTransitConstants.OrderDispatchedServiceQueue,
+                    e =>
+                    {
+                        e.PrefetchCount = 16;
+                        e.UseMessageRetry(x => x.Interval(2, TimeSpan.FromSeconds(10)));
+
+                        e.Consumer<OrderDispatchedEventConsumer>(provider);
+
+                    });
+
 
                     //cfg.ConfigureEndpoints(provider);
                 }));

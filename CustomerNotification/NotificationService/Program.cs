@@ -30,11 +30,11 @@ namespace NotificationService
                     configHost.AddEnvironmentVariables();
                     configHost.AddCommandLine(args);
                 })
-                .ConfigureAppConfiguration((hostContext, config) =>
-                {
-                    config.AddJsonFile($"appsettings.{hostContext.HostingEnvironment.EnvironmentName}.json",
-                        optional: false);
-                })
+                //.ConfigureAppConfiguration((hostContext, config) =>
+                //{
+                //    config.AddJsonFile($"appsettings.{hostContext.HostingEnvironment.EnvironmentName}.json",
+                //        optional: false);
+                //})
 
                 .ConfigureServices((hostContext, services) =>
                 {

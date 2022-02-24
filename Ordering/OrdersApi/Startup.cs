@@ -44,6 +44,7 @@ namespace OrdersApi
                 c =>
                 {
                     c.AddConsumer<RegisterOrderCommandConsumer>();
+                    c.AddConsumer<OrderDispatchedEventConsumer>();
                     //c.UsingRabbitMq((context, cfg) =>
                     //{
                     //    cfg.ConfigureEndpoints(context);
